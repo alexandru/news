@@ -5,14 +5,14 @@ on:
     
 jobs:
   jbang:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Run Script
     steps:
     - name: checkout
       uses: actions/checkout@v1
     - uses: actions/cache@v1
       with:
-        path: /root/.jbang
+        path: /home/runner/.jbang
         key: $-jbang-$
         restore-keys: |
             $-jbang-
@@ -24,6 +24,8 @@ jobs:
       run: |
         echo "HOME: $HOME"
         curl -Ls https://sh.jbang.dev | bash -s - app setup
+      env:
+        JBANG_REPO: "/home/runner/.jbang/repository"
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt
