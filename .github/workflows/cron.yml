@@ -3,7 +3,8 @@ on:
     branches:
       - "main"
   schedule:
-    - cron: '*/30 * * * *'
+    # Runs every hour
+    - cron: '0 * * * *'
     
 jobs:
   jbang:
@@ -26,6 +27,9 @@ jobs:
       shell: bash
       run: |
         curl -Ls https://sh.jbang.dev | bash -s - app setup
+    - name: Build script
+      run: |
+        ~/.jbang/bin/jbang build generate.kt
     - name: Build and Deploy to GH Pages
       shell: bash
       run: |
