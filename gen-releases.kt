@@ -214,7 +214,7 @@ val feeds = listOf(
     ),
 )
 
-suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
+suspend fun processFeed(feedSpec: Feed): SyndEntry? =
     withContext(Dispatchers.IO) {
         val allEntries = mutableListOf<SyndEntry>()
         val feed = SyndFeedInput().build(XmlReader(URL(feedSpec.url)))
@@ -245,6 +245,8 @@ suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
             allEntries.add(newEntry)
         }
         allEntries
+            .sortedBy { -1 * (it.publishedDate?.time ?: it.updatedDate.time) }
+            .firstOrNull()
     }
 
 fun main() = runBlocking {
@@ -253,7 +255,8 @@ fun main() = runBlocking {
         async { gate.withPermit {  processFeed(feed) } }
     }
     val allEntries = tasks
-        .flatMap { it.await() }
+        .map { it.await() }
+        .filterNotNull()
         .sortedBy { -1 * (it.publishedDate?.time ?: it.updatedDate.time) }
 
     val allFeeds = SyndFeedImpl().apply {
