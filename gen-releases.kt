@@ -123,7 +123,7 @@ val feeds = listOf(
         description = "Typeful, functional, streaming HTTP for Scala.",
         url = "https://github.com/http4s/http4s/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming"),
-        startFrom = Instant.parse("2023-01-04T15:24:27Z"),
+        startFrom = Instant.parse("2023-01-04T00:00:00Z"),
         exclude = ::excludeMilestones
     ),
     Feed(
