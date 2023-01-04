@@ -28,9 +28,7 @@ jobs:
     - name: Install JBang
       run: |
         curl -Ls https://sh.jbang.dev | bash -s - app setup
-        ls -alh /root/.jbang
+        ls -alh ~/.jbang
     - name: generate.kt
       run: |
-        jbang --quiet generate.kt
-      env:
-        JBANG_REPO: /root/.jbang/repository
+        ~/.jbang/bin/jbang --quiet generate.kt
