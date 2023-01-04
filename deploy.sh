@@ -28,7 +28,10 @@ git add .
 git config user.name "Alexandru Nedelcu"
 git config user.email "noreply@alexn.org"
 git commit -m "Update releases.xml"
-git push --quiet "https://alexandru:$GH_TOKEN@github.com/alexandru/news.git" gh-pages:gh-pages
+
+if [ -n "$(git cherry -v)" ]; then
+    git push --quiet "https://alexandru:$GH_TOKEN@github.com/alexandru/news.git" gh-pages:gh-pages
+fi
 
 echo "Cleaning up..."
 cd ~

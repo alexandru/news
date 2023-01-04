@@ -16,6 +16,7 @@ import com.rometools.rome.io.SyndFeedOutput
 import com.rometools.rome.io.XmlReader
 import java.io.PrintWriter
 import java.net.URL
+import java.util.*
 
 data class Feed(
     val titleFormat: (String) -> String,
@@ -179,6 +180,7 @@ fun main() {
         feedType = "atom_1.0"
         author = "Alexandru Nedelcu"
         entries = allEntries
+        publishedDate = Date()
     }
     val output = SyndFeedOutput()
     output.output(allFeeds, PrintWriter(System.out));
