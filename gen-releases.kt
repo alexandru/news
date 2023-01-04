@@ -36,11 +36,11 @@ data class Feed(
 )
 
 fun excludeMilestones(version: String): Boolean {
-    return version.contains("\\d+\\.\\d+-M\\d+".toRegex())
+    return version.contains("(?i)\\d+\\.\\d+-(m|alpha)[.]?\\d+".toRegex())
 }
 
 fun excludeMilestonesOrReleaseCandidates(version: String): Boolean {
-    return version.contains("\\d+\\.\\d+-(M|RC)\\d+".toRegex())
+    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|rc)[.]?\\d+".toRegex())
 }
 
 val feeds = listOf(
@@ -211,6 +211,16 @@ val feeds = listOf(
         tags = listOf("Scala", "Build", "Programming"),
         startFrom = Instant.parse("2022-10-31T22:41:02Z"),
         exclude = ::excludeMilestonesOrReleaseCandidates
+    ),
+    Feed(
+        titleFormat = {
+            "Arrow release: v%s".format(it.replace("^\\D+".toRegex(), ""))
+        },
+        description = "Functional companion to Kotlin's Standard Library.",
+        url = "https://github.com/arrow-kt/arrow/releases.atom",
+        tags = listOf("Kotlin", "FP", "Programming"),
+        startFrom = Instant.parse("2023-01-04T00:00:00Z"),
+        exclude = ::excludeMilestonesOrReleaseCandidates,
     ),
 )
 
