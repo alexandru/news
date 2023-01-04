@@ -7,6 +7,8 @@ jobs:
   jbang:
     runs-on: ubuntu-22.04
     name: Run Script
+    env:
+      JBANG_REPO: "/home/runner/.jbang/repository"
     steps:
     - name: checkout
       uses: actions/checkout@v1
@@ -23,11 +25,8 @@ jobs:
     - name: Install JBang
       run: |
         echo "HOME: $HOME"
+        echo "JBANG_REPO: $JBANG_REPO"
         curl -Ls https://sh.jbang.dev | bash -s - app setup
-      env:
-        JBANG_REPO: "/home/runner/.jbang/repository"
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt
-      env:
-        JBANG_REPO: "/home/runner/.jbang/repository"
