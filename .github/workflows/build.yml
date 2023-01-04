@@ -11,13 +11,11 @@ jobs:
       JBANG_REPO: "/home/runner/.jbang/repository"
     steps:
     - name: checkout
-      uses: actions/checkout@v1
-    - uses: actions/cache@v1
+      uses: actions/checkout@v3
+    - uses: actions/cache@v3
       with:
         path: /home/runner/.jbang
-        key: $-jbang-$
-        restore-keys: |
-            $-jbang-
+        key: ${{ runner.os }}-jbang
     - uses: actions/setup-java@v3
       with:
         distribution: 'adopt' # See 'Supported distributions' for available options
