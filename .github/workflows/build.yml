@@ -29,3 +29,5 @@ jobs:
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt
+      env:
+        JBANG_REPO: "/home/runner/.jbang/repository"
