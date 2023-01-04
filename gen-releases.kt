@@ -29,11 +29,11 @@ data class Feed(
 )
 
 fun excludeMilestones(version: String): Boolean {
-    return version.contains("\\b\\d+\\.\\d+-M\\d*\\b".toRegex())
+    return version.contains("\\d+\\.\\d+-M\\d+".toRegex())
 }
 
 fun excludeMilestonesOrReleaseCandidates(version: String): Boolean {
-    return version.contains("\\b\\d+\\.\\d+-(M|RC)\\d*\\b".toRegex())
+    return version.contains("\\d+\\.\\d+-(M|RC)\\d+".toRegex())
 }
 
 val feeds = listOf(
@@ -216,7 +216,9 @@ fun main() {
             if (instant < feedSpec.startFrom) {
                 continue
             }
-
+            if (feedSpec.exclude(entry.title)) {
+                continue
+            }
             val title = feedSpec.titleFormat(entry.title)
             val newEntry = SyndEntryImpl().apply {
                 this.title = title
