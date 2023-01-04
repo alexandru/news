@@ -7,18 +7,18 @@ on:
     - cron: '0 * * * *'
     
 jobs:
-  jbang:
+  deploy:
     runs-on: ubuntu-latest
-    name: Run Script
+    name: Deploy News
+    env:
+      JBANG_REPO: "/home/runner/.jbang/repository"
     steps:
     - name: checkout
-      uses: actions/checkout@v1
-    - uses: actions/cache@v1
+      uses: actions/checkout@v3
+    - uses: actions/cache@v3
       with:
-        path: /root/.jbang
-        key: $-jbang-$
-        restore-keys: |
-            $-jbang-
+        path: /home/runner/.jbang
+        key: ${{ runner.os }}-jbang
     - uses: actions/setup-java@v3
       with:
         distribution: 'adopt' # See 'Supported distributions' for available options
@@ -26,7 +26,11 @@ jobs:
     - name: Install JBang
       shell: bash
       run: |
-        curl -Ls https://sh.jbang.dev | bash -s - app setup
+        echo "HOME: $HOME"
+        echo "JBANG_REPO: $JBANG_REPO"
+        if [ ! -x "/home/runner/.jbang/bin/jbang" ]; then
+          curl -Ls https://sh.jbang.dev | bash -s - app setup
+        fi
     - name: Build and Deploy to GH Pages
       shell: bash
       run: |

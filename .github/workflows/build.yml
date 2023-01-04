@@ -5,24 +5,28 @@ on:
     
 jobs:
   jbang:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Run Script
+    env:
+      JBANG_REPO: "/home/runner/.jbang/repository"
     steps:
     - name: checkout
-      uses: actions/checkout@v1
-    - uses: actions/cache@v1
+      uses: actions/checkout@v3
+    - uses: actions/cache@v3
       with:
-        path: /root/.jbang
-        key: $-jbang-$
-        restore-keys: |
-            $-jbang-
+        path: /home/runner/.jbang
+        key: ${{ runner.os }}-jbang
     - uses: actions/setup-java@v3
       with:
         distribution: 'adopt' # See 'Supported distributions' for available options
         java-version: '17'
     - name: Install JBang
       run: |
-        curl -Ls https://sh.jbang.dev | bash -s - app setup
+        echo "HOME: $HOME"
+        echo "JBANG_REPO: $JBANG_REPO"
+        if [ ! -x "/home/runner/.jbang/bin/jbang" ]; then
+          curl -Ls https://sh.jbang.dev | bash -s - app setup
+        fi
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt

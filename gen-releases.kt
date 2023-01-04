@@ -5,6 +5,7 @@
 //DEPS org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0
 //DEPS com.rometools:rome:1.18.0
 //DEPS org.slf4j:slf4j-nop:1.7.32
+//DEPS org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4
 
 import com.rometools.rome.feed.synd.SyndCategoryImpl
 import com.rometools.rome.feed.synd.SyndContentImpl
@@ -18,6 +19,12 @@ import java.io.PrintWriter
 import java.net.URL
 import java.time.Instant
 import java.util.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 
 data class Feed(
     val titleFormat: (String) -> String,
@@ -207,9 +214,9 @@ val feeds = listOf(
     ),
 )
 
-fun main() {
-    val allEntries = mutableListOf<SyndEntry>()
-    for (feedSpec in feeds) {
+suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
+    withContext(Dispatchers.IO) {
+        val allEntries = mutableListOf<SyndEntry>()
         val feed = SyndFeedInput().build(XmlReader(URL(feedSpec.url)))
         for (entry in feed.entries) {
             val instant = entry.publishedDate?.toInstant() ?: entry.updatedDate.toInstant()
@@ -237,9 +244,18 @@ fun main() {
             }
             allEntries.add(newEntry)
         }
+        allEntries
     }
 
-    allEntries.sortBy { -1 * (it.publishedDate?.time ?: it.updatedDate.time) }
+fun main() = runBlocking {
+    val gate = Semaphore(30)
+    val tasks = feeds.map { feed ->
+        async { gate.withPermit {  processFeed(feed) } }
+    }
+    val allEntries = tasks
+        .flatMap { it.await() }
+        .sortedBy { -1 * (it.publishedDate?.time ?: it.updatedDate.time) }
+
     val allFeeds = SyndFeedImpl().apply {
         title = "Software releases"
         link = "https://news.alexn.org/releases.xml"
