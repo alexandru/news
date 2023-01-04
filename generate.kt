@@ -172,7 +172,7 @@ fun main() {
         }
     }
 
-    allEntries.sortBy { it.publishedDate ?: it.updatedDate }
+    allEntries.sortBy { -1 * (it.publishedDate?.time ?: it.updatedDate.time) }
     val allFeeds = SyndFeedImpl().apply {
         title = "Software releases"
         link = "https://news.alexn.org/releases.xml"
