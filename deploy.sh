@@ -20,7 +20,10 @@ echo "Cloning repository..."
 git clone "https://github.com/alexandru/news.git" "$BUILD_DIR" -b gh-pages
 
 echo "Generating releases.xml..."
-"$JBANG_PATH" --quiet ./generate.kt >"$BUILD_DIR/releases.xml"
+"$JBANG_PATH" --quiet ./gen-releases.kt >"$BUILD_DIR/releases.xml"
+
+echo "Copying static files..."
+cp -rp ./static/* "$BUILD_DIR/"
 
 echo "Pushing changes..."
 cd "$BUILD_DIR"
