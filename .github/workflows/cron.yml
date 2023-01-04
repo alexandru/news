@@ -27,9 +27,6 @@ jobs:
       shell: bash
       run: |
         curl -Ls https://sh.jbang.dev | bash -s - app setup
-    - name: Build script
-      run: |
-        ~/.jbang/bin/jbang build generate.kt
     - name: Build and Deploy to GH Pages
       shell: bash
       run: |
