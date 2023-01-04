@@ -22,6 +22,7 @@ jobs:
         java-version: '17'
     - name: Install JBang
       run: |
+        echo "HOME: $HOME"
         curl -Ls https://sh.jbang.dev | bash -s - app setup
     - name: Build script
       run: |
