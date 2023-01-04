@@ -24,7 +24,9 @@ jobs:
       run: |
         echo "HOME: $HOME"
         echo "JBANG_REPO: $JBANG_REPO"
-        curl -Ls https://sh.jbang.dev | bash -s - app setup
+        if [ ! -x "/home/runner/.jbang/bin/jbang" ]; then
+          curl -Ls https://sh.jbang.dev | bash -s - app setup
+        fi
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt
