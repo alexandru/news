@@ -10,7 +10,7 @@ Auto-generated RSS/Atom feeds.
 
 ## Deployment
 
-Deployment is done via Docker, on my own server. Here's the config that I use:
+Deployment is currently done via Docker, on my own server. Here's the config that I use:
 
 ```yaml
 version: '3.8'
@@ -23,8 +23,11 @@ services:
     volumes:
       - /var/www/news.alexn.org:/opt/app/output
     user: "$WWW_UID:$WWW_GID"
+    environment:
+      # Execute every 30 minutes (optional value)
+      - CRON_INTERVAL_SECS=1800
 ```
 
 This setup dumps the output of [gen-releases.kt](./gen-releases.kt) into the `/var/www/news.alexn.org` directory, files which then get served by my local Nginx server. 
 
-The only gotcha is that `$WWW_UID` and `$WWW_GID` have to be set, as these will be used for the written files, in order to avoid permission issues.
+The only gotcha is that `$WWW_UID` and `$WWW_GID` have to be set, as these will be used for the written files, in order to avoid permission issues (files have to be readable by Nginx).

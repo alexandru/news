@@ -1,10 +1,16 @@
 #!/bin/bash
 set -e
 
-SLEEP_DURATION=1800 # 30 minutes
+if [ -z "$CRON_INTERVAL_SECS" ]; then
+    CRON_INTERVAL_SECS=1800 # defaults to 30 minutes
+fi
+
+if [ -z "$COMMAND_TIMEOUT_SECS" ]; then
+    COMMAND_TIMEOUT_SECS=300 # defaults to 5 minutes
+fi
 
 function generate() {
-    timeout 300 java -jar "/opt/app/gen-releases.jar" >"/tmp/output/releases.xml"
+    timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/gen-releases.jar" >"/tmp/output/releases.xml"
 }
 
 if [ ! -d "/opt/app/output/" ]; then
@@ -30,6 +36,6 @@ do
     fi
 
     # Sleeps for 30 minutes
-    echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Sleeps for $(date "-d@$SLEEP_DURATION" -u +%H:%M:%S)"
-	sleep "$SLEEP_DURATION"
+    echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Sleeps for $(date "-d@$CRON_INTERVAL_SECS" -u +%H:%M:%S)"
+	sleep "$CRON_INTERVAL_SECS"
 done
