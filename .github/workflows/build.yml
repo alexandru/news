@@ -9,6 +9,7 @@ jobs:
     name: Run Script
     env:
       JBANG_REPO: "/home/runner/.jbang/repository"
+      
     steps:
     - name: checkout
       uses: actions/checkout@v3
@@ -16,10 +17,12 @@ jobs:
       with:
         path: /home/runner/.jbang
         key: ${{ runner.os }}-jbang
+
     - uses: actions/setup-java@v3
       with:
         distribution: 'adopt' # See 'Supported distributions' for available options
         java-version: '17'
+
     - name: Install JBang
       run: |
         echo "HOME: $HOME"
@@ -27,6 +30,7 @@ jobs:
         if [ ! -x "/home/runner/.jbang/bin/jbang" ]; then
           curl -Ls https://sh.jbang.dev | bash -s - app setup
         fi
+
     - name: Build script
       run: |
         ~/.jbang/bin/jbang build gen-releases.kt
