@@ -224,6 +224,25 @@ val feeds = listOf(
         startFrom = Instant.parse("2022-12-13T14:29:05+02:00"),
         exclude = ::excludeMilestonesOrReleaseCandidates,
     ),
+    Feed(
+        titleFormat = {
+            "Play Framework release: v%s".format(it.replace("^\\D+".toRegex(), ""))
+        },
+        description = "Web framework for Scala.",
+        url = "https://github.com/playframework/playframework/releases.atom",
+        tags = listOf("Scala", "Programming"),
+        startFrom = Instant.parse("2022-10-17T18:13:54+03:00"),
+        exclude = ::excludeMilestonesOrReleaseCandidates,
+    ),
+    Feed(
+        titleFormat = {
+            "Finch release: v%s".format(it.replace("^\\D+".toRegex(), ""))
+        },
+        description = "Library for building Finagle HTTP services.",
+        url = "https://github.com/finagle/finch/releases.atom",
+        tags = listOf("Typelevel", "FP", "Scala", "Programming"),
+        startFrom = Instant.parse("2022-11-21T18:43:10+02:00"),
+    )
 )
 
 suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
@@ -246,7 +265,7 @@ suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
                 this.publishedDate = entry.publishedDate
                 this.updatedDate = entry.updatedDate
                 this.description = SyndContentImpl().apply {
-                    value = "\"${feedSpec.description}\" (${feedSpec.tags.joinToString(", ") { "#$it" }})"
+                    value = "${feedSpec.description} (${feedSpec.tags.joinToString(", ") { "#$it" }})"
                 }
                 this.author = entry.author
                 this.categories = feedSpec.tags.map { tag ->
