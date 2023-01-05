@@ -240,6 +240,7 @@ suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
             val newEntry = SyndEntryImpl().apply {
                 this.title = title
                 this.link = entry.link
+                this.uri = entry.uri
                 this.publishedDate = entry.publishedDate
                 this.updatedDate = entry.updatedDate
                 this.description = SyndContentImpl().apply {
@@ -268,6 +269,7 @@ fun main() = runBlocking {
 
     val allFeeds = SyndFeedImpl().apply {
         title = "Software releases"
+        uri = "https://news.alexn.org/releases.xml"
         link = "https://news.alexn.org/releases.xml"
         description = "Aggregated feed"
         feedType = "atom_1.0"
