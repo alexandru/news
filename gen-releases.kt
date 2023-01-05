@@ -221,7 +221,7 @@ val feeds = listOf(
         description = "Functional companion to Kotlin's Standard Library.",
         url = "https://github.com/arrow-kt/arrow/releases.atom",
         tags = listOf("Kotlin", "FP", "Programming"),
-        startFrom = Instant.parse("2022-12-29T00:05:19+02:00"),
+        startFrom = Instant.parse("2022-12-13T14:29:05+02:00"),
         exclude = ::excludeMilestonesOrReleaseCandidates,
     ),
 )
@@ -277,6 +277,7 @@ fun main() = runBlocking {
         author = "Alexandru Nedelcu"
         entries = allEntries
         publishedDate = Date()
+        System.err.println(links)
         links.add(SyndLinkImpl().apply {
             href = "https://news.alexn.org/releases.xml"
             rel = "self"
