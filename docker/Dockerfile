@@ -26,12 +26,9 @@ RUN apk add --no-cache openjdk17-jre-headless bash
 
 COPY --from=build /home/sdk/src/build/lib /opt/app/lib
 COPY --from=build /home/sdk/src/build/gen-releases.jar /opt/app/
-COPY ./docker/gen-releases-task.sh /opt/app/
-
-# Installing crontab
-RUN mkdir /opt/app/crontabs
 COPY ./docker/entrypoint.sh /opt/app/
-RUN chown -R "${USER_NAME}:root" /opt/app
 
+RUN chown -R "${USER_NAME}:root" /opt/app
 USER ${USER_NAME}
+
 CMD /opt/app/entrypoint.sh
