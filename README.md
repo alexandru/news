@@ -1,4 +1,6 @@
-# news.alexn.org
+# [news.alexn.org](https://news.alexn.org)
+
+[![.github/workflows/deploy.yml](https://github.com/alexandru/news/actions/workflows/deploy.yml/badge.svg)](https://github.com/alexandru/news/actions/workflows/deploy.yml)
 
 Auto-generated RSS/Atom feeds.
 
