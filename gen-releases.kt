@@ -12,6 +12,8 @@ import com.rometools.rome.feed.synd.SyndContentImpl
 import com.rometools.rome.feed.synd.SyndEntry
 import com.rometools.rome.feed.synd.SyndEntryImpl
 import com.rometools.rome.feed.synd.SyndFeedImpl
+import com.rometools.rome.feed.synd.SyndLink
+import com.rometools.rome.feed.synd.SyndLinkImpl
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.SyndFeedOutput
 import com.rometools.rome.io.XmlReader
@@ -270,12 +272,16 @@ fun main() = runBlocking {
     val allFeeds = SyndFeedImpl().apply {
         title = "Software releases"
         uri = "https://news.alexn.org/releases.xml"
-        link = "https://news.alexn.org/releases.xml"
         description = "Aggregated feed"
         feedType = "atom_1.0"
         author = "Alexandru Nedelcu"
         entries = allEntries
         publishedDate = Date()
+        links.add(SyndLinkImpl().apply {
+            href = "https://news.alexn.org/releases.xml"
+            rel = "self"
+            type = "application/atom+xml"
+        })
     }
     val output = SyndFeedOutput()
     output.output(allFeeds, PrintWriter(System.out))
