@@ -18,10 +18,9 @@ if [ ! -d "/opt/app/output/" ]; then
     mkdir -p "/opt/app/output/"
 fi
 
-while :
-do
+while :; do
     echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Generating releases.xml ..."
-    
+
     # Cleaning up temp directory
     rm -rf /tmp/output
     mkdir -p /tmp/output
@@ -31,11 +30,11 @@ do
         chown -R "$(id -u):$(id -g)" /tmp/output/
         cp -rpf /tmp/output/* /opt/app/output/
         echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Done generating releases.xml!"
-    else 
+    else
         echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] ERROR generating releases.xml!" >&2
     fi
 
     # Sleeps for 30 minutes
     echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Sleeps for $(date "-d@$CRON_INTERVAL_SECS" -u +%H:%M:%S)"
-	sleep "$CRON_INTERVAL_SECS"
+    sleep "$CRON_INTERVAL_SECS"
 done
