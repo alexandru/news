@@ -219,7 +219,7 @@ val feeds = listOf(
         description = "Functional companion to Kotlin's Standard Library.",
         url = "https://github.com/arrow-kt/arrow/releases.atom",
         tags = listOf("Kotlin", "FP", "Programming"),
-        startFrom = Instant.parse("2023-01-04T00:00:00Z"),
+        startFrom = Instant.parse("2022-12-29T00:05:19+02:00"),
         exclude = ::excludeMilestonesOrReleaseCandidates,
     ),
 )
@@ -240,7 +240,7 @@ suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
             val newEntry = SyndEntryImpl().apply {
                 this.title = title
                 this.link = entry.link
-                this.uri = entry.uri
+                this.uri = entry.link
                 this.publishedDate = entry.publishedDate
                 this.updatedDate = entry.updatedDate
                 this.description = SyndContentImpl().apply {
