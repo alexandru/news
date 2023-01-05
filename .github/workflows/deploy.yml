@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - "main"
+  schedule:
+    # Runs every week
+    - cron: '0 0 * * 0'
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          make build
+
+      - name: Log in to registry
+        # This is where you will update the personal access token to GITHUB_TOKEN
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+        
+      - name: Push Docker image
+        run: |
+          make push

@@ -21,18 +21,17 @@ RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/config
 RUN adduser -u "${USER_GID}" -h /opt/app -s /bin/sh -D "${USER_NAME}"
 WORKDIR /opt/app
-RUN chown -R "${USER_NAME}" /opt/app && chmod -R "g+rwX" /opt/app && chown -R ${USER_NAME}:root /opt/app
 
-RUN apk add --no-cache openjdk17-jre-headless
-# RUN apk add --no-cache cron
+RUN apk add --no-cache openjdk17-jre-headless bash
 
-COPY --from=build --chown=${USER_NAME}:root /home/sdk/src/build/lib /opt/app/lib
-COPY --from=build --chown=${USER_NAME}:root /home/sdk/src/build/gen-releases.jar /opt/app/
-COPY --chown=${USER_NAME}:root ./docker/gen-releases-task.sh /opt/app/
+COPY --from=build /home/sdk/src/build/lib /opt/app/lib
+COPY --from=build /home/sdk/src/build/gen-releases.jar /opt/app/
+COPY ./docker/gen-releases-task.sh /opt/app/
 
 # Installing crontab
-RUN rm -f /etc/crontabs/root
-COPY --chown=${USER_NAME}:root ./docker/crontab /etc/crontabs/${USER_NAME}
+RUN mkdir /opt/app/crontabs
+COPY ./docker/entrypoint.sh /opt/app/
+RUN chown -R "${USER_NAME}:root" /opt/app
 
 USER ${USER_NAME}
-CMD crond -f -S -l 0
+CMD /opt/app/entrypoint.sh
