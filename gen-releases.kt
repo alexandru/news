@@ -265,7 +265,7 @@ suspend fun processFeed(feedSpec: Feed): List<SyndEntry> =
                 this.publishedDate = entry.publishedDate
                 this.updatedDate = entry.updatedDate
                 this.description = SyndContentImpl().apply {
-                    value = "${feedSpec.description} (${feedSpec.tags.joinToString(", ") { "#$it" }})"
+                    value = "“${feedSpec.description}” (${feedSpec.tags.joinToString(", ") { "#$it" }})"
                 }
                 this.author = entry.author
                 this.categories = feedSpec.tags.map { tag ->
