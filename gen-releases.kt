@@ -242,6 +242,17 @@ val feeds = listOf(
         url = "https://github.com/finagle/finch/releases.atom",
         tags = listOf("Typelevel", "FP", "Scala", "Programming"),
         startFrom = Instant.parse("2022-11-21T18:43:10+02:00"),
+        exclude = ::excludeMilestonesOrReleaseCandidates,
+    ),
+    Feed(
+        titleFormat = {
+            "sbt-typelevel release: v%s".format(it.replace("^\\D+".toRegex(), ""))
+        },
+        description = "Configures `sbt` for publishing libraries.",
+        url = "https://github.com/typelevel/sbt-typelevel/releases.atom",
+        tags = listOf("Typelevel", "Scala", "Build", "Programming"),
+        startFrom = Instant.parse("2023-01-07T02:34:25+02:00"),
+        exclude = ::excludeMilestonesOrReleaseCandidates,
     )
 )
 
