@@ -13,13 +13,14 @@ function generate() {
     timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/gen-releases.jar" >"/tmp/output/releases.xml"
 }
 
-if [ -f "/opt/app/gen-releases.pid" ]; then 
+if [ -f "/tmp/run/gen-releases.pid" ]; then 
     echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] gen-releases is already running!" >&2
     exit 1
 fi
 
-echo "$$" > /opt/app/gen-releases.pid
-trap "rm -f /opt/app/gen-releases.pid" EXIT
+mkdir -p /tmp/run
+echo "$$" > /tmp/run/gen-releases.pid
+trap "rm -f /tmp/run/gen-releases.pid" EXIT
 
 if [ ! -d "/opt/app/output/" ]; then
     echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Creating output directory ..."
@@ -37,10 +38,10 @@ while :; do
     if generate; then
         chown -R "$(id -u):$(id -g)" /tmp/output/
         cp -rpf /tmp/output/* /opt/app/output/
-        touch /opt/app/.gen-releases-success
+        touch /tmp/run/gen-releases.success
         echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Done generating releases.xml!"
     else
-        rm -f /opt/app/.gen-releases-success
+        rm -f /tmp/run/gen-releases.success
         echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] ERROR generating releases.xml!" >&2
     fi
 
