@@ -22,6 +22,8 @@ services:
     container_name: news
     image: 'ghcr.io/alexandru/news:latest'
     restart: unless-stopped
+    healthcheck:
+      test: ['CMD-SHELL', '/opt/app/healthcheck.sh']
     volumes:
       - /var/www/news.alexn.org:/opt/app/output
     user: "$WWW_UID:$WWW_GID"
