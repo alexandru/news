@@ -46,6 +46,7 @@ COPY --from=build /home/sdk/src/build/lib /opt/app/lib
 COPY --from=build /home/sdk/src/build/gen-releases.jar /opt/app/
 COPY ./static /opt/app/static
 COPY ./docker/entrypoint.sh /opt/app/
+COPY ./docker/healthcheck.sh /opt/app/
 
 RUN chown -R "${USER_NAME}:root" /opt/app
 USER ${USER_NAME}
