@@ -100,17 +100,17 @@ val feeds = listOf(
             "Typelevel Cats release: v%s".format(it.replace("^\\D+".toRegex(), ""))
         },
         description = "Functional programming library for Scala.",
-        url = "https://github.com/typelevel/cats-effect/releases.atom",
+        url = "https://github.com/typelevel/cats/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming"),
         startFrom = Instant.parse("2022-12-30T16:44:50Z"),
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
         titleFormat = {
-            "Typelevel Cats Effect release: v%s".format(it.replace("^\\D+".toRegex(), ""))
+            "Typelevel Cats-Effect release: v%s".format(it.replace("^\\D+".toRegex(), ""))
         },
         description = "Pure asynchronous runtime for Scala (e.g., the IO monad).",
-        url = "https://github.com/typelevel/cats/releases.atom",
+        url = "https://github.com/typelevel/cats-effect/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming"),
         startFrom = Instant.parse("2022-11-12T21:20:14Z"),
         exclude = ::excludeMilestonesOrReleaseCandidates
