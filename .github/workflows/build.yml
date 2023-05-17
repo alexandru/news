@@ -13,24 +13,14 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-    - uses: actions/cache@v3
-      with:
-        path: /home/runner/.jbang
-        key: ${{ runner.os }}-jbang
 
     - uses: actions/setup-java@v3
       with:
-        distribution: 'adopt' # See 'Supported distributions' for available options
+        distribution: 'adopt'
         java-version: '17'
 
-    - name: Install JBang
-      run: |
-        echo "HOME: $HOME"
-        echo "JBANG_REPO: $JBANG_REPO"
-        if [ ! -x "/home/runner/.jbang/bin/jbang" ]; then
-          curl -Ls https://sh.jbang.dev | bash -s - app setup
-        fi
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
 
-    - name: Build script
-      run: |
-        ~/.jbang/bin/jbang build gen-releases.kt
+    - name: Run Build
+      run: gradle build --no-daemon
