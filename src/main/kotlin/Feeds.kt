@@ -9,11 +9,11 @@ data class Feed(
 )
 
 fun excludeMilestones(version: String): Boolean {
-    return version.contains("(?i)\\d+\\.\\d+-(m|alpha)[.]?\\d+".toRegex())
+    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|dev)[.-]?\\d+".toRegex())
 }
 
 fun excludeMilestonesOrReleaseCandidates(version: String): Boolean {
-    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|rc)[.]?\\d+".toRegex())
+    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|rc|dev)[.-]?\\d+".toRegex())
 }
 
 val feeds = listOf(
@@ -177,6 +177,7 @@ val feeds = listOf(
         },
         url = "https://github.com/JetBrains/kotlin/releases.atom",
         tags = listOf("Kotlin", "Programming", "Language"),
-        startFrom = Instant.MIN
+        startFrom = Instant.MIN,
+        exclude = ::excludeMilestonesOrReleaseCandidates
     )
 )
