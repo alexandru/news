@@ -15,13 +15,13 @@ function generate() {
         --tag scala \
         --delay-mins 60 \
         --output /tmp/output/scala-releases.xml \
-        --limit-per-feed 10 && \
+        --limit-per-feed 5 && \
     timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/news.jar" \
         --title "Kotlin releases" \
         --tag kotlin \
         --delay-mins 60 \
         --output /tmp/output/kotlin-releases.xml \
-        --limit-per-feed 10
+        --limit-per-feed 5
 }
 
 if [ -f "/tmp/run/gen-releases.pid" ]; then 
@@ -39,7 +39,7 @@ if [ ! -d "/opt/app/output/" ]; then
 fi
 
 while :; do
-    echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Generating releases.xml ..."
+    echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Generating files ..."
 
     # Cleaning up temp directory
     rm -rf /tmp/output

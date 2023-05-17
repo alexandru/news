@@ -1,9 +1,20 @@
+FROM ghcr.io/alexandru/jdk-build-tools:latest AS cache
+RUN mkdir -p /home/sdk/cache_home
+ENV GRADLE_USER_HOME /home/sdk/cache_home
+RUN mkdir -p /home/sdk/src
+COPY --chown=sdk:sdk ./*.gradle.kts /home/sdk/src
+WORKDIR /home/sdk/src
+RUN gradle clean build -i --stacktrace
+
+# ------------------------------------------------
+
 FROM ghcr.io/alexandru/jdk-build-tools:latest AS build
+COPY --chown=sdk:sdk --from=cache /home/sdk/cache_home /home/sdk/.gradle
 COPY --chown=sdk:sdk . /home/sdk/src
 WORKDIR /home/sdk/src
 
 # Building distributable JAR
-RUN gradle --no-daemon --console=plain fatJar
+RUN gradle fatJar -i --stacktrace
 
 # ------------------------------------------------
 
