@@ -3,10 +3,9 @@ COPY --chown=sdk:sdk . /home/sdk/src
 WORKDIR /home/sdk/src
 
 # Building distributable JAR
-RUN rm -rf ./build && mkdir ./build
-RUN chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh"
-RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
-RUN jbang export --verbose portable --output ./build/gen-releases.jar ./gen-releases.kt
+RUN ./gradlew --no-daemon --console=plain build
+
+# ------------------------------------------------
 
 FROM --platform=linux/amd64 eclipse-temurin:17-alpine as jre-build
 
@@ -42,8 +41,7 @@ WORKDIR /opt/app
 
 RUN apk add --no-cache bash
 
-COPY --from=build /home/sdk/src/build/lib /opt/app/lib
-COPY --from=build /home/sdk/src/build/gen-releases.jar /opt/app/
+COPY --from=build /home/sdk/src/build/libs/news-*-standalone.jar /opt/app/news.jar
 COPY ./static /opt/app/static
 COPY ./docker/entrypoint.sh /opt/app/
 COPY ./docker/healthcheck.sh /opt/app/

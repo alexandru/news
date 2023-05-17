@@ -10,7 +10,18 @@ if [ -z "$COMMAND_TIMEOUT_SECS" ]; then
 fi
 
 function generate() {
-    timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/gen-releases.jar" >"/tmp/output/releases.xml"
+    timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/news.jar" \
+        --title "Scala releases" \
+        --tag scala \
+        --delay-mins 60 \
+        --output /tmp/output/scala-releases.xml \
+        --limit-per-feed 10 && \
+    timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/news.jar" \
+        --title "Kotlin releases" \
+        --tag kotlin \
+        --delay-mins 60 \
+        --output /tmp/output/kotlin-releases.xml \
+        --limit-per-feed 10
 }
 
 if [ -f "/tmp/run/gen-releases.pid" ]; then 
@@ -39,10 +50,10 @@ while :; do
         chown -R "$(id -u):$(id -g)" /tmp/output/
         cp -rpf /tmp/output/* /opt/app/output/
         touch /tmp/run/gen-releases.success
-        echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Done generating releases.xml!"
+        echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] Done generating files!"
     else
         rm -f /tmp/run/gen-releases.success
-        echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] ERROR generating releases.xml!" >&2
+        echo "[$(date +"%Y-%m-%dT%H:%M:%S%z")] ERROR while generating files!" >&2
     fi
 
     # Sleeps for 30 minutes
