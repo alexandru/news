@@ -39,7 +39,8 @@ suspend fun processFeed(
         val feed = SyndFeedInput().build(XmlReader(URL(feedSpec.url)))
         val allEntries = mutableListOf<FeedOutput>()
         for (entry in feed.entries) {
-            val instant = entry.publishedDate?.toInstant() ?: entry.updatedDate.toInstant()
+            val instant = entry.publishedDate?.toInstant()
+                ?: entry.updatedDate.toInstant()
             if (instant < feedSpec.startFrom) {
                 continue
             }
@@ -91,7 +92,11 @@ suspend fun processFeed(
         }
     }
 
-private fun buildFeed(feedTitle: String, feedHref: String, allEntries: List<SyndEntry>) =
+private fun buildFeed(
+    feedTitle: String,
+    feedHref: String,
+    allEntries: List<SyndEntry>
+) =
     SyndFeedImpl().apply {
         title = feedTitle
         uri = feedHref
@@ -112,12 +117,12 @@ private fun buildFeed(feedTitle: String, feedHref: String, allEntries: List<Synd
 fun main(args: Array<String>) = runBlocking {
     val parser = ArgParser("news")
     val feedTitle by parser
-            .option(
-                ArgType.String,
-                fullName = "title",
-                shortName = null,
-                "Title of the generated feed"
-            ).required()
+        .option(
+            ArgType.String,
+            fullName = "title",
+            shortName = null,
+            "Title of the generated feed"
+        ).required()
     val tags by parser
         .option(
             ArgType.String,
@@ -133,12 +138,12 @@ fun main(args: Array<String>) = runBlocking {
             "Publishing delay in minutes"
         )
     val limitPerFeed by parser
-            .option(
-                ArgType.Int,
-                fullName = "limit-per-feed",
-                shortName = null,
-                "Limit number of entries per feed"
-            ).default(10)
+        .option(
+            ArgType.Int,
+            fullName = "limit-per-feed",
+            shortName = null,
+            "Limit number of entries per feed"
+        ).default(10)
     val host by parser
         .option(
             ArgType.String,
@@ -183,13 +188,30 @@ fun main(args: Array<String>) = runBlocking {
         }
 
     val outputFileFull = File(outputPath)
-    val outputFileSummary = File(outputPath.replace("\\.([^.]+)$".toRegex(), "-summary.$1"))
+    val outputFileSummary =
+        File(
+            outputPath.replace(
+                "\\.([^.]+)$".toRegex(),
+                "-summary.$1"
+            )
+        )
 
     val feedHref = "https://$host/${outputFileFull.toPath().fileName}"
-    val newFeedFull = buildFeed(feedTitle, feedHref, allEntries.map { it.full })
-    val newFeedSummary = buildFeed("$feedTitle (Summary)", feedHref, allEntries.map { it.summary })
+    val newFeedFull =
+        buildFeed(feedTitle, feedHref, allEntries.map { it.full })
+    val newFeedSummary = buildFeed(
+        "$feedTitle (Summary)",
+        feedHref,
+        allEntries.map { it.summary }
+    )
     withContext(Dispatchers.IO) {
-        SyndFeedOutput().output(newFeedFull, PrintWriter(outputFileFull))
-        SyndFeedOutput().output(newFeedSummary, PrintWriter(outputFileSummary))
+        SyndFeedOutput().output(
+            newFeedFull,
+            PrintWriter(outputFileFull)
+        )
+        SyndFeedOutput().output(
+            newFeedSummary,
+            PrintWriter(outputFileSummary)
+        )
     }
 }

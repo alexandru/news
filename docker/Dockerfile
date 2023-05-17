@@ -3,7 +3,7 @@ COPY --chown=sdk:sdk . /home/sdk/src
 WORKDIR /home/sdk/src
 
 # Building distributable JAR
-RUN gradle --no-daemon --console=plain build
+RUN gradle --no-daemon --console=plain fatJar
 
 # ------------------------------------------------
 
