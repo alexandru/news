@@ -1,0 +1,804 @@
+[
+    {
+        "projectName": "argonaut-shapeless",
+        "projectUrl": "https://github.com/alexarchambault/argonaut-shapeless",
+        "releasesUrl": "https://github.com/alexarchambault/argonaut-shapeless/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "banana-rdf",
+        "projectUrl": "https://github.com/banana-rdf/banana-rdf",
+        "releasesUrl": "https://github.com/banana-rdf/banana-rdf/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "case-insensitive",
+        "projectUrl": "https://github.com/typelevel/case-insensitive",
+        "releasesUrl": "https://github.com/typelevel/case-insensitive/releases.atom",
+        "tags": [
+            "case-insensitive",
+            "cats",
+            "scala",
+            "string"
+        ]
+    },
+    {
+        "projectName": "catapult",
+        "projectUrl": "https://github.com/typelevel/catapult",
+        "releasesUrl": "https://github.com/typelevel/catapult/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "catbird",
+        "projectUrl": "https://github.com/typelevel/catbird",
+        "releasesUrl": "https://github.com/typelevel/catbird/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "cats",
+        "projectUrl": "https://github.com/typelevel/cats",
+        "releasesUrl": "https://github.com/typelevel/cats/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "cats-collections",
+        "projectUrl": "https://github.com/typelevel/cats-collections",
+        "releasesUrl": "https://github.com/typelevel/cats-collections/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "cats-effect",
+        "projectUrl": "https://github.com/typelevel/cats-effect/",
+        "releasesUrl": "https://github.com/typelevel/cats-effect/releases.atom",
+        "tags": [
+            "asynchronous",
+            "effects",
+            "fp",
+            "scala",
+            "typeclasses"
+        ]
+    },
+    {
+        "projectName": "cats-mtl",
+        "projectUrl": "https://github.com/typelevel/cats-mtl/",
+        "releasesUrl": "https://github.com/typelevel/cats-mtl/releases.atom",
+        "tags": [
+            "cats",
+            "functional-programming",
+            "monad",
+            "transformer-typeclasses",
+            "typeclasses"
+        ]
+    },
+    {
+        "projectName": "cats-parse",
+        "projectUrl": "https://github.com/typelevel/cats-parse",
+        "releasesUrl": "https://github.com/typelevel/cats-parse/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "cats-scalatest",
+        "projectUrl": "https://github.com/IronCoreLabs/cats-scalatest",
+        "releasesUrl": "https://github.com/IronCoreLabs/cats-scalatest/releases.atom",
+        "tags": [
+            "cats",
+            "scala",
+            "scalatest-bindings",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "cats-tagless",
+        "projectUrl": "https://github.com/typelevel/cats-tagless/",
+        "releasesUrl": "https://github.com/typelevel/cats-tagless/releases.atom",
+        "tags": [
+            "functional-programming",
+            "scala",
+            "tagless"
+        ]
+    },
+    {
+        "projectName": "cats-time",
+        "projectUrl": "https://github.com/typelevel/cats-time/",
+        "releasesUrl": "https://github.com/typelevel/cats-time/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "ciris",
+        "projectUrl": "https://github.com/vlovgr/ciris",
+        "releasesUrl": "https://github.com/vlovgr/ciris/releases.atom",
+        "tags": [
+            "configurations",
+            "scala"
+        ]
+    },
+    {
+        "projectName": "coulomb",
+        "projectUrl": "https://github.com/erikerlandson/coulomb",
+        "releasesUrl": "https://github.com/erikerlandson/coulomb/releases.atom",
+        "tags": [
+            "avro-schema",
+            "configuration",
+            "configuration-management",
+            "dimensional-analysis",
+            "numeric",
+            "pureconfig",
+            "refined",
+            "scala",
+            "static-types",
+            "type-safety",
+            "typechecking",
+            "typeclass",
+            "typelevel",
+            "unit-analysis",
+            "unit-conversion",
+            "unit-quantity",
+            "units",
+            "units-of-measure"
+        ]
+    },
+    {
+        "projectName": "cron4s",
+        "projectUrl": "https://github.com/alonsodomin/cron4s",
+        "releasesUrl": "https://github.com/alonsodomin/cron4s/releases.atom",
+        "tags": [
+            "cron",
+            "cron-expression-parsing",
+            "cross-platform",
+            "functional",
+            "scala",
+            "scalajs",
+            "time"
+        ]
+    },
+    {
+        "projectName": "decline",
+        "projectUrl": "https://github.com/bkirwi/decline",
+        "releasesUrl": "https://github.com/bkirwi/decline/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "discipline",
+        "projectUrl": "https://github.com/typelevel/discipline",
+        "releasesUrl": "https://github.com/typelevel/discipline/releases.atom",
+        "tags": [
+            "property-based-testing",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "doobie",
+        "projectUrl": "https://github.com/tpolecat/doobie",
+        "releasesUrl": "https://github.com/tpolecat/doobie/releases.atom",
+        "tags": [
+            "database",
+            "fp",
+            "functional-programming",
+            "jdbc",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "edomata",
+        "projectUrl": "https://github.com/hnaderi/edomata",
+        "releasesUrl": "https://github.com/hnaderi/edomata/releases.atom",
+        "tags": [
+            "automata",
+            "cats",
+            "cqrs",
+            "cqrs-es",
+            "ddd",
+            "event-driven",
+            "event-sourcing",
+            "eventsourcing",
+            "fp",
+            "purely-functional",
+            "scala",
+            "scalajs",
+            "scalanative"
+        ]
+    },
+    {
+        "projectName": "eff",
+        "projectUrl": "https://github.com/atnos-org/eff",
+        "releasesUrl": "https://github.com/atnos-org/eff/releases.atom",
+        "tags": [
+            "effects",
+            "monad",
+            "monad-transformers",
+            "scala"
+        ]
+    },
+    {
+        "projectName": "endless",
+        "projectUrl": "https://github.com/endless4s/endless",
+        "releasesUrl": "https://github.com/endless4s/endless/releases.atom",
+        "tags": [
+            "actors",
+            "akka",
+            "akka-actors",
+            "akka-cluster",
+            "algebra",
+            "cqrs",
+            "event-sourcing",
+            "functional-programming",
+            "scala",
+            "tagless",
+            "tagless-final"
+        ]
+    },
+    {
+        "projectName": "extruder",
+        "projectUrl": "https://github.com/janstenpickle/extruder",
+        "releasesUrl": "https://github.com/janstenpickle/extruder/releases.atom",
+        "tags": [
+            "cats",
+            "configuration",
+            "decoding",
+            "encoding",
+            "extruder",
+            "scala",
+            "serialization",
+            "shapeless",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "fabric",
+        "projectUrl": "https://github.com/typelevel/fabric",
+        "releasesUrl": "https://github.com/typelevel/fabric/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "feral",
+        "projectUrl": "https://github.com/typelevel/feral",
+        "releasesUrl": "https://github.com/typelevel/feral/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "ff4s",
+        "projectUrl": "https://github.com/buntec/ff4s",
+        "releasesUrl": "https://github.com/buntec/ff4s/releases.atom",
+        "tags": [
+            "frontend",
+            "functional-programming",
+            "scala",
+            "scalajs"
+        ]
+    },
+    {
+        "projectName": "fetch",
+        "projectUrl": "https://github.com/47deg/fetch",
+        "releasesUrl": "https://github.com/47deg/fetch/releases.atom",
+        "tags": [
+            "cats",
+            "concurrency",
+            "data",
+            "data-fetching",
+            "monads",
+            "monix",
+            "parallelism",
+            "scala",
+            "scala-js",
+            "sequencing"
+        ]
+    },
+    {
+        "projectName": "finch",
+        "projectUrl": "https://github.com/finagle/finch",
+        "releasesUrl": "https://github.com/finagle/finch/releases.atom",
+        "tags": [
+            "circe",
+            "finagle",
+            "finch",
+            "http",
+            "json",
+            "rest",
+            "scala",
+            "web"
+        ]
+    },
+    {
+        "projectName": "frameless",
+        "projectUrl": "https://github.com/typelevel/frameless",
+        "releasesUrl": "https://github.com/typelevel/frameless/releases.atom",
+        "tags": [
+            "fp",
+            "functional-programming",
+            "scala",
+            "spark",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "fs2-compress",
+        "projectUrl": "https://github.com/lhns/fs2-compress",
+        "releasesUrl": "https://github.com/lhns/fs2-compress/releases.atom",
+        "tags": [
+            "bzip2",
+            "compression",
+            "fs2",
+            "gzip",
+            "scala",
+            "tar",
+            "zip",
+            "zstd"
+        ]
+    },
+    {
+        "projectName": "fs2-data",
+        "projectUrl": "https://github.com/gnieh/fs2-data",
+        "releasesUrl": "https://github.com/gnieh/fs2-data/releases.atom",
+        "tags": [
+            "cbor",
+            "circe",
+            "csv",
+            "fs2",
+            "json",
+            "jsonpath",
+            "xml",
+            "xpath"
+        ]
+    },
+    {
+        "projectName": "fs2-dom",
+        "projectUrl": "https://github.com/armanbilge/fs2-dom",
+        "releasesUrl": "https://github.com/armanbilge/fs2-dom/releases.atom",
+        "tags": [
+            "cats-effect",
+            "fs2",
+            "scala-js",
+            "web-apis"
+        ]
+    },
+    {
+        "projectName": "fs2-grpc",
+        "projectUrl": "https://github.com/typelevel/fs2-grpc",
+        "releasesUrl": "https://github.com/typelevel/fs2-grpc/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "fs2",
+        "projectUrl": "https://github.com/typelevel/fs2",
+        "releasesUrl": "https://github.com/typelevel/fs2/releases.atom",
+        "tags": [
+            "fp",
+            "functional-programming",
+            "scala",
+            "stream",
+            "streaming-computation"
+        ]
+    },
+    {
+        "projectName": "hammock",
+        "projectUrl": "https://github.com/pepegar/hammock",
+        "releasesUrl": "https://github.com/pepegar/hammock/releases.atom",
+        "tags": [
+            "cats",
+            "fp",
+            "http",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "http4s",
+        "projectUrl": "https://github.com/http4s/http4s",
+        "releasesUrl": "https://github.com/http4s/http4s/releases.atom",
+        "tags": [
+            "cats",
+            "fs2",
+            "http",
+            "http-client",
+            "http-server",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "imp",
+        "projectUrl": "https://github.com/non/imp",
+        "releasesUrl": "https://github.com/non/imp/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "jawn-fs2",
+        "projectUrl": "https://github.com/typelevel/jawn-fs2",
+        "releasesUrl": "https://github.com/typelevel/jawn-fs2/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "keypool",
+        "projectUrl": "https://github.com/typelevel/keypool",
+        "releasesUrl": "https://github.com/typelevel/keypool/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "kind-projector",
+        "projectUrl": "https://github.com/typelevel/kind-projector",
+        "releasesUrl": "https://github.com/typelevel/kind-projector/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "kittens",
+        "projectUrl": "https://github.com/typelevel/kittens",
+        "releasesUrl": "https://github.com/typelevel/kittens/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "lepus",
+        "projectUrl": "https://github.com/hnaderi/lepus",
+        "releasesUrl": "https://github.com/hnaderi/lepus/releases.atom",
+        "tags": [
+            "amqp",
+            "amqp0-9-1",
+            "cats-effect",
+            "functional-programming",
+            "rabbitmq",
+            "rabbitmq-client",
+            "scala",
+            "scala-js",
+            "scala-native",
+            "scalajs",
+            "scalanative",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "libra",
+        "projectUrl": "https://github.com/to-ithaca/libra",
+        "releasesUrl": "https://github.com/to-ithaca/libra/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "log4cats",
+        "projectUrl": "https://github.com/typelevel/log4cats",
+        "releasesUrl": "https://github.com/typelevel/log4cats/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "monix",
+        "projectUrl": "https://github.com/monix/monix",
+        "releasesUrl": "https://github.com/monix/monix/releases.atom",
+        "tags": [
+            "cats",
+            "cats-effect",
+            "fp",
+            "functional-programming",
+            "monix",
+            "reactive-programming",
+            "reactive-streams",
+            "reactivex",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "Monocle",
+        "projectUrl": "https://github.com/optics-dev/Monocle",
+        "releasesUrl": "https://github.com/optics-dev/Monocle/releases.atom",
+        "tags": [
+            "cats",
+            "functional-programming",
+            "lens",
+            "optics",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "mouse",
+        "projectUrl": "https://github.com/typelevel/mouse/",
+        "releasesUrl": "https://github.com/typelevel/mouse/releases.atom",
+        "tags": [
+            "cats",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "natchez",
+        "projectUrl": "https://github.com/typelevel/natchez",
+        "releasesUrl": "https://github.com/typelevel/natchez/releases.atom",
+        "tags": [
+            "cats",
+            "cats-effect",
+            "honeycomb",
+            "jaeger",
+            "opentracing",
+            "scala",
+            "tracing"
+        ]
+    },
+    {
+        "projectName": "otel4s",
+        "projectUrl": "https://github.com/typelevel/otel4s",
+        "releasesUrl": "https://github.com/typelevel/otel4s/releases.atom",
+        "tags": [
+            "cats",
+            "cats-effect",
+            "metrics",
+            "opentelemetry",
+            "scala",
+            "tracing",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "outwatch",
+        "projectUrl": "https://github.com/outwatch/outwatch",
+        "releasesUrl": "https://github.com/outwatch/outwatch/releases.atom",
+        "tags": [
+            "frp",
+            "functional-programming",
+            "reactive",
+            "rx",
+            "sbt",
+            "scala",
+            "scalajs",
+            "virtualdom"
+        ]
+    },
+    {
+        "projectName": "parsley-cats",
+        "projectUrl": "https://github.com/j-mie6/parsley-cats",
+        "releasesUrl": "https://github.com/j-mie6/parsley-cats/releases.atom",
+        "tags": [
+            "cats",
+            "parser",
+            "parser-combinators",
+            "scala"
+        ]
+    },
+    {
+        "projectName": "pureconfig",
+        "projectUrl": "https://github.com/pureconfig/pureconfig",
+        "releasesUrl": "https://github.com/pureconfig/pureconfig/releases.atom",
+        "tags": [
+            "configuration",
+            "hacktoberfest",
+            "pureconfig",
+            "scala",
+            "scala-library",
+            "shapeless"
+        ]
+    },
+    {
+        "projectName": "refined",
+        "projectUrl": "https://github.com/fthomas/refined",
+        "releasesUrl": "https://github.com/fthomas/refined/releases.atom",
+        "tags": [
+            "refinement-types",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "scalacheck",
+        "projectUrl": "https://github.com/typelevel/scalacheck",
+        "releasesUrl": "https://github.com/typelevel/scalacheck/releases.atom",
+        "tags": [
+            "property-testing",
+            "scala",
+            "scalacheck"
+        ]
+    },
+    {
+        "projectName": "scalacheck-shapeless",
+        "projectUrl": "https://github.com/alexarchambault/scalacheck-shapeless",
+        "releasesUrl": "https://github.com/alexarchambault/scalacheck-shapeless/releases.atom",
+        "tags": [
+            "generic-derivation",
+            "scala",
+            "scalacheck",
+            "shapeless"
+        ]
+    },
+    {
+        "projectName": "scala-exercises",
+        "projectUrl": "https://github.com/scala-exercises/scala-exercises",
+        "releasesUrl": "https://github.com/scala-exercises/scala-exercises/releases.atom",
+        "tags": [
+            "cats",
+            "functional-programming",
+            "learning",
+            "postgresql",
+            "scala",
+            "shapeless"
+        ]
+    },
+    {
+        "projectName": "scala-steward",
+        "projectUrl": "https://github.com/fthomas/scala-steward",
+        "releasesUrl": "https://github.com/fthomas/scala-steward/releases.atom",
+        "tags": [
+            "azure-repos",
+            "bitbucket",
+            "bot",
+            "dependencies",
+            "forgejo",
+            "github",
+            "gitlab",
+            "maven",
+            "mill",
+            "plugins",
+            "sbt",
+            "scala",
+            "scala-cli",
+            "scala-steward",
+            "update-service"
+        ]
+    },
+    {
+        "projectName": "scodec",
+        "projectUrl": "https://github.com/scodec/scodec",
+        "releasesUrl": "https://github.com/scodec/scodec/releases.atom",
+        "tags": [
+            "binary",
+            "decoding",
+            "encoding",
+            "scala",
+            "scodec",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "scalac-scoverage-plugin",
+        "projectUrl": "https://github.com/scoverage/scalac-scoverage-plugin",
+        "releasesUrl": "https://github.com/scoverage/scalac-scoverage-plugin/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "shapeless",
+        "projectUrl": "https://github.com/milessabin/shapeless",
+        "releasesUrl": "https://github.com/milessabin/shapeless/releases.atom",
+        "tags": [
+            "fp",
+            "functional-programming",
+            "generic-programming",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "simulacrum",
+        "projectUrl": "https://github.com/typelevel/simulacrum",
+        "releasesUrl": "https://github.com/typelevel/simulacrum/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "simulacrum-scalafix",
+        "projectUrl": "https://github.com/typelevel/simulacrum-scalafix",
+        "releasesUrl": "https://github.com/typelevel/simulacrum-scalafix/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "singleton-ops",
+        "projectUrl": "https://github.com/fthomas/singleton-ops",
+        "releasesUrl": "https://github.com/fthomas/singleton-ops/releases.atom",
+        "tags": [
+            "scala",
+            "singleton-types"
+        ]
+    },
+    {
+        "projectName": "skunk",
+        "projectUrl": "https://github.com/typelevel/skunk",
+        "releasesUrl": "https://github.com/typelevel/skunk/releases.atom",
+        "tags": [
+            "cats",
+            "cats-effect",
+            "database",
+            "fs2",
+            "functional-programming",
+            "postgres",
+            "scala",
+            "scodec",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "sonic",
+        "projectUrl": "https://github.com/melrief/sonic",
+        "releasesUrl": "https://github.com/melrief/sonic/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "specs2",
+        "projectUrl": "https://github.com/etorreborre/specs2",
+        "releasesUrl": "https://github.com/etorreborre/specs2/releases.atom",
+        "tags": [
+            "bdd",
+            "scala",
+            "specification",
+            "specs2",
+            "test"
+        ]
+    },
+    {
+        "projectName": "spire",
+        "projectUrl": "https://github.com/typelevel/spire",
+        "releasesUrl": "https://github.com/typelevel/spire/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "squants",
+        "projectUrl": "https://github.com/typelevel/squants",
+        "releasesUrl": "https://github.com/typelevel/squants/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "TwoTails",
+        "projectUrl": "https://github.com/wheaties/TwoTails",
+        "releasesUrl": "https://github.com/wheaties/TwoTails/releases.atom",
+        "tags": [
+            "compiler-plugin",
+            "recursion",
+            "scala",
+            "typelevel"
+        ]
+    },
+    {
+        "projectName": "typelevel.g8",
+        "projectUrl": "https://github.com/typelevel/typelevel.g8",
+        "releasesUrl": "https://github.com/typelevel/typelevel.g8/releases.atom",
+        "tags": [
+            "giter8",
+            "sbt",
+            "scala"
+        ]
+    },
+    {
+        "projectName": "typelevel-nix",
+        "projectUrl": "https://github.com/typelevel/typelevel-nix",
+        "releasesUrl": "https://github.com/typelevel/typelevel-nix/releases.atom",
+        "tags": [
+            "devshell",
+            "flakes",
+            "nix",
+            "scala",
+            "scalajs"
+        ]
+    },
+    {
+        "projectName": "uniform-scala",
+        "projectUrl": "https://github.com/ltbs/uniform-scala",
+        "releasesUrl": "https://github.com/ltbs/uniform-scala/releases.atom",
+        "tags": [
+        ]
+    },
+    {
+        "projectName": "vault",
+        "projectUrl": "https://github.com/typelevel/vault",
+        "releasesUrl": "https://github.com/typelevel/vault/releases.atom",
+        "tags": [
+        ]
+    }
+]
