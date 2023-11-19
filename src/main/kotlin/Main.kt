@@ -41,9 +41,6 @@ suspend fun processFeed(
         for (entry in feed.entries) {
             val instant = entry.publishedDate?.toInstant()
                 ?: entry.updatedDate.toInstant()
-            if (instant < feedSpec.startFrom) {
-                continue
-            }
             if (feedSpec.exclude(entry.title)) {
                 continue
             }

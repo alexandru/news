@@ -1,16 +1,13 @@
-import java.time.Instant
-
 data class Feed(
     val titleFormat: (String) -> String,
     val url: String,
     val tags: List<String>,
-    val startFrom: Instant,
     val exclude: (String) -> Boolean = { false }
 )
 
-fun excludeMilestones(version: String): Boolean {
-    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|dev)[.-]?\\d+".toRegex())
-}
+//fun excludeMilestones(version: String): Boolean {
+//    return version.contains("(?i)\\d+\\.\\d+-(m|alpha|dev)[.-]?\\d+".toRegex())
+//}
 
 fun excludeMilestonesOrReleaseCandidates(version: String): Boolean {
     return version.contains("(?i)\\d+\\.\\d+-(m|alpha|rc|dev)[.-]?\\d+".toRegex())
@@ -23,7 +20,6 @@ val feeds = listOf(
         },
         url = "https://github.com/scala/scala/releases.atom",
         tags = listOf("Scala", "Programming", "Language"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -32,7 +28,6 @@ val feeds = listOf(
         },
         url = "https://github.com/sbt/sbt/releases.atom",
         tags = listOf("sbt", "Scala", "Programming", "Tooling"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -42,7 +37,6 @@ val feeds = listOf(
         },
         url = "https://github.com/akka/akka/releases.atom",
         tags = listOf("Akka", "Scala", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -51,7 +45,6 @@ val feeds = listOf(
         },
         url = "https://github.com/scala-native/scala-native/releases.atom",
         tags = listOf("Scala", "ScalaNative", "Programming", "Language"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -60,7 +53,6 @@ val feeds = listOf(
         },
         url = "https://github.com/scala-js/scala-js/releases.atom",
         tags = listOf("Scala", "ScalaJS", "JavaScript", "Programming", "Language"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -69,7 +61,6 @@ val feeds = listOf(
         },
         url = "https://github.com/typelevel/cats/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -78,7 +69,6 @@ val feeds = listOf(
         },
         url = "https://github.com/typelevel/cats-effect/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -87,7 +77,6 @@ val feeds = listOf(
         },
         url = "https://github.com/typelevel/fs2/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -96,8 +85,7 @@ val feeds = listOf(
         },
         url = "https://github.com/http4s/http4s/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
-        exclude = ::excludeMilestones
+        exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
         titleFormat = {
@@ -105,8 +93,7 @@ val feeds = listOf(
         },
         url = "https://github.com/tpolecat/doobie/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
-        exclude = ::excludeMilestones
+        exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
         titleFormat = {
@@ -114,7 +101,6 @@ val feeds = listOf(
         },
         url = "https://github.com/circe/circe/releases.atom",
         tags = listOf("Scala", "FP", "Typelevel", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -123,7 +109,6 @@ val feeds = listOf(
         },
         url = "https://github.com/scalatest/scalatest/releases.atom",
         tags = listOf("Scala", "Testing", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -132,7 +117,6 @@ val feeds = listOf(
         },
         url = "https://github.com/typelevel/scalacheck/releases.atom",
         tags = listOf("Scala", "Testing", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -141,7 +125,6 @@ val feeds = listOf(
         },
         url = "https://github.com/arrow-kt/arrow/releases.atom",
         tags = listOf("Kotlin", "FP", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -150,16 +133,6 @@ val feeds = listOf(
         },
         url = "https://github.com/playframework/playframework/releases.atom",
         tags = listOf("Scala", "Programming", "Library"),
-        startFrom = Instant.MIN,
-        exclude = ::excludeMilestonesOrReleaseCandidates
-    ),
-    Feed(
-        titleFormat = {
-            "Finch release: v%s".format(it.replace("^\\D+".toRegex(), ""))
-        },
-        url = "https://github.com/finagle/finch/releases.atom",
-        tags = listOf("Typelevel", "FP", "Scala", "Programming", "Library"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
     Feed(
@@ -168,16 +141,6 @@ val feeds = listOf(
         },
         url = "https://github.com/typelevel/sbt-typelevel/releases.atom",
         tags = listOf("Typelevel", "Scala", "Build", "Programming", "Tooling"),
-        startFrom = Instant.MIN,
         exclude = ::excludeMilestonesOrReleaseCandidates
     ),
-    Feed(
-        titleFormat = {
-            "Kotlin v%s was released!".format(it.replace("^\\D+".toRegex(), ""))
-        },
-        url = "https://github.com/JetBrains/kotlin/releases.atom",
-        tags = listOf("Kotlin", "Programming", "Language"),
-        startFrom = Instant.MIN,
-        exclude = ::excludeMilestonesOrReleaseCandidates
-    )
 )
