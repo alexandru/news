@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    kotlin("jvm") version "1.9.20"
-    id("com.github.ben-manes.versions") version "0.50.0"
-    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    kotlin("jvm") version "2.0.0"
+    id("com.github.ben-manes.versions") version "0.51.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 group = "org.alexn"
@@ -18,7 +18,7 @@ repositories {
 dependencies {
     implementation("com.rometools:rome:2.1.0")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.6")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
     implementation("org.slf4j:slf4j-nop:2.0.9")
 }
 
@@ -61,9 +61,10 @@ tasks.register<Jar>("fatJar") {
     // Provided we set it up in the application plugin configuration
     manifest { attributes(mapOf("Main-Class" to application.mainClass)) }
     val sourcesMain = sourceSets.main.get()
-    val contents = configurations.runtimeClasspath.get()
-        .map { if (it.isDirectory) it else zipTree(it) } +
-        sourcesMain.output
+    val contents =
+        configurations.runtimeClasspath.get()
+            .map { if (it.isDirectory) it else zipTree(it) } +
+            sourcesMain.output
     from(contents)
 }
 

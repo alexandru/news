@@ -21,6 +21,11 @@ function generate() {
         --tag kotlin \
         --delay-mins 60 \
         --output /tmp/output/kotlin-releases.xml \
+        --limit-per-feed 5 && \
+    timeout -s KILL "$COMMAND_TIMEOUT_SECS" java -jar "/opt/app/news.jar" \
+        --title "Releases" \
+        --delay-mins 60 \
+        --output /tmp/output/releases.xml \
         --limit-per-feed 5
 }
 
